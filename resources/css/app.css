@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#notification {
+    transition: opacity 0.5s ease-out;
+    opacity: 0;
+}
