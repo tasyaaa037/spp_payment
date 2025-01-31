@@ -22,11 +22,10 @@
             </div> 
         @endif
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#TambahData" class="btn btn-primary btn-sm">New</a>
+            <div class="card" style="background-color: #f0f8ff; border-radius: 12px;">
+                <div class="card-header" style="background-color: #87ceeb; font-weight: bold; border-top-left-radius: 12px; border-top-right-radius: 12px;">
+                 <a href="#" data-bs-toggle="modal" data-bs-target="#TambahData" class="btn btn-primary btn-sm">New</a>
                 </div>
-
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead>

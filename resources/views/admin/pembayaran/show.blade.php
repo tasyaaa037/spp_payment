@@ -4,10 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
+            <div class="card" style="background-color: #f0f8ff; border-radius: 12px;">
+                <div class="card-header" style="background-color: #87ceeb; font-weight: bold; border-top-left-radius: 12px; border-top-right-radius: 12px;">
                     <marquee behavior="left" direction="left">Riwayat Rekapitulasi Pembayaran SPP</marquee>
-
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead>

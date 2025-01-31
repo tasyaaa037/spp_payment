@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pembayaran;
+use App\Models\Siswa;
+use App\Models\SPP;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -14,7 +16,7 @@ class PembayaranController extends Controller
         return view('admin.pembayaran.index', compact('pembayaran'));
     }
 
-      public function store(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'siswa_id' => 'required',
@@ -41,16 +43,16 @@ class PembayaranController extends Controller
         }
     }
 
-        public function show(string $id)
+    public function show(string $id)
     {
-        $pembayaran = Pembayaran::where('siswa_id', $id)->paginate(10)->get();
+        $pembayaran = Pembayaran::where('siswa_id', $id)->paginate(10);
         return view('admin.pembayaran.show', compact('pembayaran'));
     }
 
-        public function create()
-    {      
+    public function create()
+    {
         $data = Pembayaran::all();
-        $pdf = Pdf::loadView('admin.pembayaran.invoice', compact($data));
+        $pdf = Pdf::loadView('admin.pembayaran.invoice', compact('data'));
         return $pdf->stream();
     }
 }

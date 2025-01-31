@@ -38,13 +38,8 @@
                     </label>
                 </div>
 
-                <div class="d-flex justify-content-between align-items-center">
-                    <button type="submit" class="btn btn-primary btn-lg">{{ __('Login') }}</button>
-                    @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
-                        </a>
-                    @endif
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg w-100">{{ __('Login') }}</button>
                 </div>
             </form>
         </div>
@@ -52,98 +47,95 @@
 </div>
 
 <style>
-/* Styling untuk container login */
+/* Container login dengan latar gambar */
 .login-container {
     min-height: 100vh;
-    background: linear-gradient(135deg, #e2f4f1 0%, #d3f0f0 100%);
+    background: url('{{ asset('build/assets/login.png') }}') no-repeat center center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px; /* Menambahkan padding untuk menyesuaikan tampilan */
+    padding: 20px;
 }
 
-/* Styling untuk card login */
+/* Card login dengan transparansi */
 .card {
     width: 100%;
     max-width: 420px;
+    background-color: rgba(255, 255, 255, 0.8); /* Transparansi putih */
+    border: 2px solid #B0BEC5; /* Warna abu */
     border-radius: 12px;
-    background-color: white;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Styling untuk header card */
+/* Header card */
 .card-header {
-    background-color: #6fa3f9;
+    background-color: #90A4AE; /* Abu */
     color: white;
-    padding: 25px;
-    font-family: 'Arial', sans-serif;
+    padding: 15px;
     font-size: 22px;
-    border-radius: 12px 12px 0 0;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
 }
 
-/* Form input fields */
+/* Input field */
 .form-control {
     border-radius: 10px;
     padding: 12px;
     font-size: 16px;
-    background-color: #f7fafc;
+    border: 1px solid #B0BEC5; /* Warna abu */
+    background-color: #ECEFF1; /* Abu muda */
 }
 
-/* Fokus input field */
+/* Fokus input */
 .form-control:focus {
-    border-color: #6fa3f9;
-    box-shadow: 0 0 10px rgba(111, 163, 249, 0.5);
+    border-color: #90A4AE; /* Abu terang */
+    box-shadow: 0 0 10px rgba(144, 164, 174, 0.3);
 }
 
-/* Styling untuk tombol login */
+/* Tombol login */
 .btn-primary {
-    background-color: #6fa3f9;
-    border-color: #6fa3f9;
+    background-color: #90A4AE; /* Abu */
+    border-color: #78909C;
     border-radius: 50px;
-    padding: 12px 25px;
+    padding: 12px 20px;
     font-size: 16px;
     font-weight: bold;
-}
-
-/* Styling untuk link forgot password */
-.btn-link {
-    color: #6fa3f9;
-    font-size: 14px;
-}
-
-/* Hover effect pada tombol dan link */
-.btn-primary:hover, .btn-link:hover {
-    background-color: #4f8be2;
     color: white;
 }
 
-/* Styling untuk bagian invalid feedback */
+/* Hover tombol login */
+.btn-primary:hover {
+    background-color: #607D8B; /* Abu lebih gelap */
+    color: white;
+}
+
+/* Feedback invalid */
 .invalid-feedback {
     font-size: 12px;
-    color: #ff4d4d;
+    color: #D32F2F; /* Merah */
 }
 
-/* Form label styling */
+/* Label input */
 .form-label {
     font-weight: bold;
-    color: #333;
+    color: #37474F; /* Abu gelap */
 }
 
-/* Styling checkbox */
+/* Checkbox */
 .form-check-input {
     width: 18px;
     height: 18px;
     border-radius: 4px;
+    border: 1px solid #B0BEC5;
 }
 
+/* Responsif untuk layar kecil */
 @media (max-width: 768px) {
     .card {
         max-width: 100%;
-        margin: 0 10px; 
+        margin: 0 10px;
     }
 }
-
 </style>
-
 @endsection
