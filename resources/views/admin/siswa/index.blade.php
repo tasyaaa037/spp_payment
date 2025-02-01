@@ -203,13 +203,14 @@
         </div>
     </div>
 </div>
+
 <!-- Modal Edit-->
 @foreach ( $siswa as $s )
 <div class="modal fade" id="Edit{{ $s->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Siswa</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Data Siswa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -220,75 +221,64 @@
                         <label class="form-label">Nama Siswa</label>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama', $s->nama)}}" placeholder="Masukan Nama Siswa dengan Benar">
                         @error('nama')
-                            <div class="alert alert-danger" role="alert">
-                                {{ $message }}
-                            </div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="mb-3">
-                        <label class="form-label">Nisn</label>
-                        <input type="number" class="form-control @error('nisn') is-invalid @enderror" name="nisn" value="{{ old('nisn', $s->nisn)}}" placeholder="Masukan Nisn dengan Benar" disabled>
-                        @error('nisn')
-                            <div class="alert alert-danger" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                        <label class="form-label">NISN</label>
+                        <input type="number" class="form-control" value="{{ $s->nisn }}" disabled>
+                        <input type="hidden" name="nisn" value="{{ $s->nisn }}">
                     </div>
+
                     <div class="mb-3">
-                        <label class="form-label">Nis</label>
-                        <input type="number" class="form-control @error('nis') is-invalid @enderror" name="nis" value="{{ old('nis', $s->nis)}}" placeholder="Masukan Nis dengan Benar" disabled>
-                        @error('nis')
-                            <div class="alert alert-danger" role="alert">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                        <label class="form-label">NIS</label>
+                        <input type="number" class="form-control" value="{{ $s->nis }}" disabled>
+                        <input type="hidden" name="nis" value="{{ $s->nis }}">
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label">Kelas</label>
-                        <select class="form-select @error('kelas_id') is-invalid @enderror" name="kelas_id" aria-label="Pilih Kelas">
-                            <option selected>Pilih Kelas</option>
+                        <select class="form-select @error('kelas_id') is-invalid @enderror" name="kelas_id">
+                            <option disabled selected>Pilih Kelas</option>
                             @foreach ($kelas as $k)
-                                <option value="{{ $k->id }}" @selected($k->id == $s->kelas_id)>{{ $k->nama_kelas}}</option>
+                                <option value="{{ $k->id }}" @selected($k->id == $s->kelas_id)>{{ $k->nama_kelas }}</option>
                             @endforeach
                         </select>
                         @error('kelas_id')
-                            <div class="alert alert-danger" role="alert">
-                                {{ $message }}
-                            </div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label">No HP</label>
                         <input type="number" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" value="{{ old('no_hp', $s->no_hp)}}" placeholder="Masukan Nomor dengan Benar">
                         @error('no_hp')
-                            <div class="alert alert-danger" role="alert">
-                                {{ $message }}
-                            </div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label">Alamat</label>
                         <textarea class="form-control @error('alamat') is-invalid @enderror" name="alamat" rows="3">{{ old('alamat', $s->alamat) }}</textarea>
                         @error('alamat')
-                            <div class="alert alert-danger" role="alert">
-                                {{ $message }}
-                            </div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label">Pilih Masa SPP</label>
-                        <select class="form-select @error('spp_id') is-invalid @enderror" name="spp_id" aria-label="Pilih Tagihan SPP">
-                            <option selected>{{ $s->spp->tahun }}</option>
+                        <select class="form-select @error('spp_id') is-invalid @enderror" name="spp_id">
+                            <option disabled selected>Pilih Masa SPP</option>
                             @foreach ($spp as $sp)
                                 <option value="{{ $sp->id }}" @selected($sp->id == $s->spp_id)>{{ $sp->tahun}}</option>
                             @endforeach
                         </select>
                         @error('spp_id')
-                            <div class="alert alert-danger" role="alert">
-                                {{ $message }}
-                            </div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-success">Save Data</button>
@@ -299,6 +289,7 @@
     </div>
 </div> 
 @endforeach
+
 
 <!-- Modal Tampil -->
 @foreach ( $siswa as $s )
